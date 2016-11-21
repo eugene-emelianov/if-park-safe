@@ -16,6 +16,7 @@
 		06ADEE4F1DE1D4C300089EA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06ADEE4D1DE1D4C300089EA8 /* LaunchScreen.storyboard */; };
 		06ADEE5A1DE1D4C400089EA8 /* ParkSafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ADEE591DE1D4C400089EA8 /* ParkSafeTests.swift */; };
 		06ADEE671DE2210300089EA8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ADEE661DE2210300089EA8 /* NotificationManager.swift */; };
+		606D821DF2AA02AE1579C941 /* libPods-ParkSafe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 199DAFC2B705A1EA3BEAB120 /* libPods-ParkSafe.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,9 @@
 		06ADEE591DE1D4C400089EA8 /* ParkSafeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkSafeTests.swift; sourceTree = "<group>"; };
 		06ADEE5B1DE1D4C400089EA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06ADEE661DE2210300089EA8 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		199DAFC2B705A1EA3BEAB120 /* libPods-ParkSafe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParkSafe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF08EE62754BBB479EA845B0 /* Pods-ParkSafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkSafe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParkSafe/Pods-ParkSafe.release.xcconfig"; sourceTree = "<group>"; };
+		E360C736AA3931D227226E31 /* Pods-ParkSafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkSafe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParkSafe/Pods-ParkSafe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +54,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				068E3F441DE25B8100A45089 /* UserNotifications.framework in Frameworks */,
+				606D821DF2AA02AE1579C941 /* libPods-ParkSafe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				068E3F431DE25B8000A45089 /* UserNotifications.framework */,
+				199DAFC2B705A1EA3BEAB120 /* libPods-ParkSafe.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -78,6 +84,7 @@
 				06ADEE581DE1D4C400089EA8 /* ParkSafeTests */,
 				06ADEE401DE1D4C300089EA8 /* Products */,
 				068E3F421DE25B8000A45089 /* Frameworks */,
+				FCEEE856B49DFB1B6E714AC2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +121,15 @@
 			path = ParkSafeTests;
 			sourceTree = "<group>";
 		};
+		FCEEE856B49DFB1B6E714AC2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E360C736AA3931D227226E31 /* Pods-ParkSafe.debug.xcconfig */,
+				AF08EE62754BBB479EA845B0 /* Pods-ParkSafe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06ADEE5E1DE1D4C400089EA8 /* Build configuration list for PBXNativeTarget "ParkSafe" */;
 			buildPhases = (
+				2C93464FEB2D9BEF2AEA8C8E /* [CP] Check Pods Manifest.lock */,
 				06ADEE3B1DE1D4C300089EA8 /* Sources */,
 				06ADEE3C1DE1D4C300089EA8 /* Frameworks */,
 				06ADEE3D1DE1D4C300089EA8 /* Resources */,
+				5C119C052100044DDD592CD9 /* [CP] Embed Pods Frameworks */,
+				269D3DBE14CBE3A20893A3FA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,7 +183,6 @@
 				TargetAttributes = {
 					06ADEE3E1DE1D4C300089EA8 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = QMBN2M6KV2;
 						LastSwiftMigration = 0810;
 					};
 					06ADEE541DE1D4C400089EA8 = {
@@ -213,6 +231,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		269D3DBE14CBE3A20893A3FA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParkSafe/Pods-ParkSafe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C93464FEB2D9BEF2AEA8C8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5C119C052100044DDD592CD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParkSafe/Pods-ParkSafe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		06ADEE3B1DE1D4C300089EA8 /* Sources */ = {
@@ -349,8 +415,10 @@
 		};
 		06ADEE5F1DE1D4C400089EA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E360C736AA3931D227226E31 /* Pods-ParkSafe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ParkSafe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.ParkSafe;
@@ -361,8 +429,10 @@
 		};
 		06ADEE601DE1D4C400089EA8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF08EE62754BBB479EA845B0 /* Pods-ParkSafe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ParkSafe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.ParkSafe;

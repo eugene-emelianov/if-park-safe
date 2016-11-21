@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps;
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notificationManager = NotificationManager()
         
         notificationManager?.registerForNotifications()
+        
+        GMSServices.provideAPIKey("AIzaSyDOt28IrMJFOiIZuRJhtJT8eglnGuoMCUk");
         
         return true
     }
