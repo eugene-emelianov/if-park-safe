@@ -20,7 +20,7 @@ class FirstViewController: UIViewController {
             notificationManager = (UIApplication.shared.delegate as! AppDelegate).notificationManager
         }
         
-        notificationManager?.scheduleNotification(identifier: "id1", title: "Area 1", subtitle: "Area 1 detected", body: "Test", latitude: 31.03, longitude: -56.00, radius: 2000, areaIdentifier: "Area 1")
+        notificationManager?.scheduleNotification(identifier: "id1", title: "Area 1", subtitle: "Area 1 detected", body: "Test", latitude: 31.03, longitude: -56.00, radius: 2000, areaIdentifier: "Area 1", repeats: true)
         
         notificationManager?.scheduleNotification(identifier: "id2", title: "Area 2", subtitle: "Area 2 detected", body: "Test", timeInterval: 5)
         
