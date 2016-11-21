@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         notificationManager = NotificationManager()
         
-        notificationManager?.registerForNotifications() 
+        notificationManager?.registerForNotifications()  
         
         return true
     }
