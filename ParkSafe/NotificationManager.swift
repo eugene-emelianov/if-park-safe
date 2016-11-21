@@ -40,8 +40,8 @@ class NotificationManager{
             content.subtitle = subtitle
             content.body = body
             
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: repeats)
-            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: timeInterval, repeats: repeats)
+            let request = UNNotificationRequest.init(identifier: identifier, content: content, trigger: trigger)
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }
     }
