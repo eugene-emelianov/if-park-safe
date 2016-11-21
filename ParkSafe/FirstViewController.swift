@@ -20,11 +20,6 @@ class FirstViewController: UIViewController {
         if notificationManager == nil{
             notificationManager = (UIApplication.shared.delegate as! AppDelegate).notificationManager
         }
-        
-        notificationManager?.scheduleNotification(identifier: "id1", title: "Area 1", subtitle: "Area 1 detected", body: "Test", latitude: 31.03, longitude: -56.00, radius: 2000, areaIdentifier: "Area 1", repeats: true)
-        
-        notificationManager?.scheduleNotification(identifier: "id2", title: "Area 2", subtitle: "Area 2 detected", body: "Test", timeInterval: 5)
-        
 
         let camera = GMSCameraPosition.camera(withLatitude: 56.9516026,
                                               longitude: 24.119115, zoom: 12)
@@ -69,6 +64,8 @@ class FirstViewController: UIViewController {
         rectangle.spans = [GMSStyleSpan(style: solidRed)]
 
         rectangle.map = mapView
+        
+        notificationManager?.scheduleNotification(identifier: "Marupe", title: "Car theft risk is high in Mārupe!", subtitle: "", body: "You are parking in Mārupe. Car theft risk is extremely high in this area, so do not leave your car unattended especially overnight. Based on our data 25 vehicles has been stolen here during last 12 months mostly to be split apart and sold in Lithuania.", latitude: 56.916645, longitude: 24.011521, radius: 500, areaIdentifier: "Marupe", repeats: true)
     }
     
     
@@ -91,6 +88,8 @@ class FirstViewController: UIViewController {
         rectangle.spans = [GMSStyleSpan(style: solidRed)]
         
         rectangle.map = mapView
+        
+        notificationManager?.scheduleNotification(identifier: "Alfa", title: "Dear Līga, your BMW is at risk near Alfa!", subtitle: "", body: "Rear-view mirrors of BMWs are likely to be stolen here. A set of rear-view mirrors for BMW can cost up to 2000 EUR. So, try to avoid this parking area at best. If you decide to stay, please prefer outdoor parking area since CTV cameras are operating there.", latitude: 56.982832, longitude: 24.201361, radius: 500, areaIdentifier: "Alfa", repeats: true)
     }
     
     func addSlice(mapView: GMSMapView){
@@ -125,6 +124,8 @@ class FirstViewController: UIViewController {
         rectangle.spans = [GMSStyleSpan(style: solidRed)]
         
         rectangle.map = mapView
+        
+        notificationManager?.scheduleNotification(identifier: "Spice", title: "High risk of vandalism near Spice!", subtitle: "", body: "Dear Jānis, please keep an eye on your Volvo XC90 in Spice parking area! Headlights of Volvo has been stolen 5 times in 3 months here. Do you know a single headlight unit for your car costs about 3000 EUR? This makes your car a top choice for thefts. Do not leave it unattended here.", latitude: 56.930258, longitude: 24.037121, radius: 100, areaIdentifier: "Spice", repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
