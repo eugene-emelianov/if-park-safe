@@ -41,7 +41,7 @@ class FirstViewController: UIViewController, UNUserNotificationCenterDelegate {
         
         addAlfa(mapView: mapView)
         addMarupe(mapView: mapView)
-        addSlice(mapView: mapView)
+        addSpice(mapView: mapView)
     }
     
     func addMarupe(mapView: GMSMapView) {
@@ -98,7 +98,7 @@ class FirstViewController: UIViewController, UNUserNotificationCenterDelegate {
         notificationManager?.scheduleNotification(identifier: "Alfa", title: "Dear Līga, your BMW is at risk near Alfa!", subtitle: "", body: "Rear-view mirrors of BMWs are likely to be stolen here. A set of rear-view mirrors for BMW can cost up to 2000 EUR. So, try to avoid this parking area at best. If you decide to stay, please prefer outdoor parking area since CTV cameras are operating there.", latitude: 56.982832, longitude: 24.201361, radius: 500, areaIdentifier: "Alfa", repeats: true)
     }
     
-    func addSlice(mapView: GMSMapView){
+    func addSpice(mapView: GMSMapView){
         
         var path = GMSMutablePath()
         let solidRed = GMSStrokeStyle.solidColor(UIColor.red)
@@ -131,7 +131,6 @@ class FirstViewController: UIViewController, UNUserNotificationCenterDelegate {
         
         rectangle.map = mapView
         
-        notificationManager?.scheduleNotification(identifier: "Spice", title: "High risk of vandalism near Spice!", subtitle: "", body: "Dear Jānis, please keep an eye on your Volvo XC90 in Spice parking area! Headlights of Volvo has been stolen 5 times in 3 months here. Do you know a single headlight unit for your car costs about 3000 EUR? This makes your car a top choice for thefts. Do not leave it unattended here.", latitude: 56.930258, longitude: 24.037121, radius: 100, areaIdentifier: "Spice", repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
