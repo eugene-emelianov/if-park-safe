@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:SafeArea.gpx">
+   </FileRef>
+   <FileRef
       location = "group:Spice.gpx">
    </FileRef>
    <FileRef
