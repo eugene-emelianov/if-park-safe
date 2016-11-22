@@ -81,7 +81,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate {
         
         rectangle.map = mapView
         
-        notificationManager?.scheduleNotification(identifier: "Marupe", title: "Car theft risk is high in Mārupe!", subtitle: "", body: "You are parking in Mārupe. Car theft risk is extremely high in this area, so do not leave your car unattended especially overnight. Based on our data 25 vehicles has been stolen here during last 12 months mostly to be split apart and sold in Lithuania.", latitude: 56.916645, longitude: 24.011521, radius: 500, areaIdentifier: "Marupe", repeats: true)
     }
     
     
@@ -105,7 +104,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate {
         
         rectangle.map = mapView
         
-        notificationManager?.scheduleNotification(identifier: "Alfa", title: "Dear Līga, your BMW is at risk near Alfa!", subtitle: "", body: "Rear-view mirrors of BMWs are likely to be stolen here. A set of rear-view mirrors for BMW can cost up to 2000 EUR. So, try to avoid this parking area at best. If you decide to stay, please prefer outdoor parking area since CTV cameras are operating there.", latitude: 56.982832, longitude: 24.201361, radius: 500, areaIdentifier: "Alfa", repeats: true)
     }
     
     func addSpice(mapView: GMSMapView){
@@ -184,16 +182,23 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate {
         }
         oldLocation = latestLocation
         
-        let dangerousLocation = CLLocation(latitude: 56.930258, longitude: 24.037121)
+        let spiceLocation = CLLocation(latitude: 56.930258, longitude: 24.037121)
+        let marupeLocation = CLLocation(latitude: 56.916645, longitude: 24.011521)
+        let alfaLocation = CLLocation(latitude: 56.982832, longitude: 24.201361)
         
-        let distance = latestLocation?.distance(from: dangerousLocation)
+        let spiceDistance = latestLocation?.distance(from: spiceLocation)
+        let marupeDistance = latestLocation?.distance(from: marupeLocation)
+        let alfaDistance = latestLocation?.distance(from: alfaLocation)
         
+        let inSpice = Double(spiceDistance ?? 0) < 100.00
+        let inMarupe = Double(marupeDistance ?? 0) < 100.00
+        let inAlfa = Double(alfaDistance ?? 0) < 100.00
         //print("distance not determined: \(distance == nil)")
         
         //print("distance: \(distance)")
         let currentPoints = defaults.integer(forKey: "safetyPoints")
         
-        if Double(distance ?? 0) < 100.00 {
+        if inSpice || inMarupe || inAlfa {
             if (Int(currentPoints) > 0) {
                 defaults.set(currentPoints - 1, forKey: "safetyPoints")
             }
