@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Spice.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:Alfa.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:Marupe.gpx">
+   </FileRef>
+   <FileRef
       location = "group:ParkSafe.xcodeproj">
    </FileRef>
    <FileRef
