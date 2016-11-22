@@ -16,6 +16,8 @@
 		06ADEE4F1DE1D4C300089EA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06ADEE4D1DE1D4C300089EA8 /* LaunchScreen.storyboard */; };
 		06ADEE5A1DE1D4C400089EA8 /* ParkSafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ADEE591DE1D4C400089EA8 /* ParkSafeTests.swift */; };
 		06ADEE671DE2210300089EA8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ADEE661DE2210300089EA8 /* NotificationManager.swift */; };
+		253EE1361DE3630D0059C26D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253EE1351DE3630D0059C26D /* CoreLocation.framework */; };
+		254ACA241DE444E600A8BDE2 /* UserPageInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254ACA231DE444E600A8BDE2 /* UserPageInfoController.swift */; };
 		606D821DF2AA02AE1579C941 /* libPods-ParkSafe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 199DAFC2B705A1EA3BEAB120 /* libPods-ParkSafe.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,8 @@
 		06ADEE5B1DE1D4C400089EA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06ADEE661DE2210300089EA8 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		199DAFC2B705A1EA3BEAB120 /* libPods-ParkSafe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParkSafe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		253EE1351DE3630D0059C26D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		254ACA231DE444E600A8BDE2 /* UserPageInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPageInfoController.swift; sourceTree = "<group>"; };
 		AF08EE62754BBB479EA845B0 /* Pods-ParkSafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkSafe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParkSafe/Pods-ParkSafe.release.xcconfig"; sourceTree = "<group>"; };
 		E360C736AA3931D227226E31 /* Pods-ParkSafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkSafe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParkSafe/Pods-ParkSafe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				253EE1361DE3630D0059C26D /* CoreLocation.framework in Frameworks */,
 				068E3F441DE25B8100A45089 /* UserNotifications.framework in Frameworks */,
 				606D821DF2AA02AE1579C941 /* libPods-ParkSafe.a in Frameworks */,
 			);
@@ -71,6 +76,7 @@
 		068E3F421DE25B8000A45089 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				253EE1351DE3630D0059C26D /* CoreLocation.framework */,
 				068E3F431DE25B8000A45089 /* UserNotifications.framework */,
 				199DAFC2B705A1EA3BEAB120 /* libPods-ParkSafe.a */,
 			);
@@ -108,6 +114,7 @@
 				06ADEE4D1DE1D4C300089EA8 /* LaunchScreen.storyboard */,
 				06ADEE501DE1D4C300089EA8 /* Info.plist */,
 				06ADEE661DE2210300089EA8 /* NotificationManager.swift */,
+				254ACA231DE444E600A8BDE2 /* UserPageInfoController.swift */,
 			);
 			path = ParkSafe;
 			sourceTree = "<group>";
@@ -288,6 +295,7 @@
 				06ADEE471DE1D4C300089EA8 /* SecondViewController.swift in Sources */,
 				06ADEE431DE1D4C300089EA8 /* AppDelegate.swift in Sources */,
 				06ADEE671DE2210300089EA8 /* NotificationManager.swift in Sources */,
+				254ACA241DE444E600A8BDE2 /* UserPageInfoController.swift in Sources */,
 				06ADEE451DE1D4C300089EA8 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

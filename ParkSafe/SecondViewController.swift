@@ -10,10 +10,11 @@ import UIKit
 import GoogleMaps
 
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, CLLocationManagerDelegate {
 
-    
+    var safetyPoints = 0
     var notificationManager: NotificationManager?
+    var locationManager: CLLocationManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,21 +24,31 @@ class SecondViewController: UIViewController {
             notificationManager = (UIApplication.shared.delegate as! AppDelegate).notificationManager
         }
         
+        if locationManager == nil {
+            locationManager = getLocationManager()
+        }
+        
         let camera = GMSCameraPosition.camera(withLatitude: 56.9516026,
                                               longitude: 24.119115, zoom: 12)
         let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         
-        self.view = mapView
         
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(56.9516026, 24.119115)
-        marker.title = "Riga"
-        marker.snippet = "Latvia"
-        marker.map = mapView
+        self.view = mapView
         
         addAlfa(mapView: mapView)
         addMarupe(mapView: mapView)
         addSpice(mapView: mapView)
+    }
+    
+    func getLocationManager() -> CLLocationManager {
+        let manager = CLLocationManager()
+        manager.delegate = self
+        
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestAlwaysAuthorization()
+        manager.startUpdatingLocation()
+        
+        return manager
     }
     
     func addMarupe(mapView: GMSMapView) {
@@ -139,7 +150,46 @@ class SecondViewController: UIViewController {
         
         
     }
-
+    
+    func startUpdatingLocation() {
+        self.locationManager?.startUpdatingLocation()
+    }
+    
+    func stopUpdatingLocation() {
+        self.locationManager?.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let defaults = UserDefaults()
+        
+        
+        let latestLocation = locations.last
+        
+        let safetyLocation = CLLocation(latitude: 56.930258, longitude: 24.037121)
+        
+        let distance = latestLocation?.distance(from: safetyLocation)
+        
+        //print("distance not determined: \(distance == nil)")
+        
+        //print("distance: \(distance)")
+        let currentPoints = defaults.integer(forKey: "safetyPoints")
+        
+        if Double(distance ?? 0) < 100.00 {
+            if (Int(currentPoints) > 0) {
+                defaults.set(currentPoints - 1, forKey: "safetyPoints")
+            }
+        } else {
+            defaults.set(currentPoints + 1, forKey: "safetyPoints")
+        }
+        
+        print("sp: \(defaults.integer(forKey: "safetyPoints"))")
+        
+        let latitude = String(format: "%.4f", latestLocation!.coordinate.latitude)
+        let longitude = String(format: "%.4f", latestLocation!.coordinate.longitude)
+        
+        print("Lat: \(latitude), Long: \(longitude)")
+        
+    }
 
 }
 
