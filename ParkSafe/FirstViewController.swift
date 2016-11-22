@@ -31,6 +31,9 @@ class FirstViewController: UIViewController, UNUserNotificationCenterDelegate {
                                               longitude: 24.119115, zoom: 12)
         let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         
+        mapView.isMyLocationEnabled = true;
+        
+        
         self.view = mapView
         
         let marker = GMSMarker()
