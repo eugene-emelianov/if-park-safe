@@ -8,8 +8,9 @@
 
 import UIKit
 import GoogleMaps
+import UserNotifications
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     var notificationManager: NotificationManager?
     
@@ -19,6 +20,11 @@ class FirstViewController: UIViewController {
         
         if notificationManager == nil{
             notificationManager = (UIApplication.shared.delegate as! AppDelegate).notificationManager
+            if #available(iOS 10.0, *) {
+                notificationManager?.setDelegate(delegate: self)
+            } else {
+                // Fallback on earlier versions
+            }
         }
 
         let camera = GMSCameraPosition.camera(withLatitude: 56.9516026,
@@ -136,6 +142,22 @@ class FirstViewController: UIViewController {
     @IBAction func goToArea1(_ sender: UIButton) {
         
         
+    }
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let title = response.notification.request.content.title
+        
+        let text = response.notification.request.content.body
+        
+        let alert = UIAlertController(title: title, message: text, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

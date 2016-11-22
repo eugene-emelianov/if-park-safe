@@ -33,6 +33,11 @@ class NotificationManager{
         }
     }
     
+    @available(iOS 10.0, *)
+    func setDelegate(delegate: UNUserNotificationCenterDelegate){
+        UNUserNotificationCenter.current().delegate = delegate
+    }
+    
     func scheduleNotification(identifier: String, title: String, subtitle: String, body: String, timeInterval: TimeInterval, repeats: Bool = false) {
         if #available(iOS 10, *) {
             let content = UNMutableNotificationContent()
