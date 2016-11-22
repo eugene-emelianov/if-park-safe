@@ -33,6 +33,7 @@ class FirstViewController: UIViewController, UNUserNotificationCenterDelegate {
         
         mapView.isMyLocationEnabled = true;
         
+        
         self.view = mapView
         
         let marker = GMSMarker()

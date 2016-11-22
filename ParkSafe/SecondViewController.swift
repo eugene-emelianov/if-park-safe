@@ -15,6 +15,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate {
     var safetyPoints = 0
     var notificationManager: NotificationManager?
     var locationManager: CLLocationManager?
+    var mapView: GMSMapView?
+    var oldLocation: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +32,15 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate {
         
         let camera = GMSCameraPosition.camera(withLatitude: 56.9516026,
                                               longitude: 24.119115, zoom: 12)
-        let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
+        mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         
+        mapView?.isMyLocationEnabled = true;
         
         self.view = mapView
         
-        addAlfa(mapView: mapView)
-        addMarupe(mapView: mapView)
-        addSpice(mapView: mapView)
+        addAlfa(mapView: mapView!)
+        addMarupe(mapView: mapView!)
+        addSpice(mapView: mapView!)
     }
     
     func getLocationManager() -> CLLocationManager {
@@ -165,9 +168,25 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate {
         
         let latestLocation = locations.last
         
-        let safetyLocation = CLLocation(latitude: 56.930258, longitude: 24.037121)
+        if oldLocation != nil {
+            if let distanceToOldLocation = latestLocation?.distance(from: oldLocation!) {
+                if (distanceToOldLocation > 10 ) {
+                    let camera = GMSCameraPosition.camera(withLatitude:
+                        (latestLocation?.coordinate.latitude)!, longitude:(latestLocation?.coordinate.longitude)!, zoom:14)
+                    self.mapView?.animate(to: camera)
+                }
+            }
+        } else {
+            let camera = GMSCameraPosition.camera(withLatitude:
+                (latestLocation?.coordinate.latitude)!, longitude:(latestLocation?.coordinate.longitude)!, zoom:14)
+            self.mapView?.animate(to: camera)
+            
+        }
+        oldLocation = latestLocation
         
-        let distance = latestLocation?.distance(from: safetyLocation)
+        let dangerousLocation = CLLocation(latitude: 56.930258, longitude: 24.037121)
+        
+        let distance = latestLocation?.distance(from: dangerousLocation)
         
         //print("distance not determined: \(distance == nil)")
         
@@ -192,4 +211,3 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate {
     }
 
 }
-
